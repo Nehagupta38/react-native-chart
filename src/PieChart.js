@@ -50,7 +50,7 @@ export default class PieChart extends Component<void, any, any> {
 		let sum = 0;
 		const data = this.props.data || [];
 		data.forEach(n => { sum += (n[1] > 0) ? n[1] : 0.001; });
-		const sectors = data.map(n => Math.floor(360 * (n[1]/sum)));
+		const sectors = data.map(n => Math.round(360 * (n[1]/sum)));
 		let startAngle = 0;
 
 		const arcs = [];

@@ -51,7 +51,7 @@ var centerY=this.props.height/2;
 var sum=0;
 var data=this.props.data||[];
 data.forEach(function(n){sum+=n[1]>0?n[1]:0.001;});
-var sectors=data.map(function(n){return Math.floor(360*(n[1]/sum));});
+var sectors=data.map(function(n){return Math.round(360*(n[1]/sum));});
 var startAngle=0;
 
 var arcs=[];
