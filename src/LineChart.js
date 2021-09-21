@@ -1,7 +1,7 @@
 /* @flow */
 import React, { Component } from 'react';
 import { Animated, View, Platform, TouchableOpacity } from 'react-native';
-import { Surface, Shape, Path } from '@react-native-community/art'
+import { Surface, Shape, Path, LinearGradient } from '@react-native-community/art'
 import * as C from './constants';
 import Circle from './Circle';
 const AnimatedShape = Animated.createAnimatedComponent(Shape);
@@ -141,8 +141,13 @@ export default class LineChart extends Component<void, any, any> {
 
 		var multipleFills = dataPoints.map( (dataPointSet, index) => {
 			let allDisjointPaths = fillPath[index].map ( (singlePath, subIndex) => {
+				let shapeColor = this.props.fillColor
+				if (this.props.fillGradient) {
+					const colors = this.props.gradientArray
+					shapeColor = new LinearGradient(colors, 0, 50, 0, 320);
+				}
 				return (
-					<AnimatedShape d={singlePath} fill={this.props.fillColor} />
+					<AnimatedShape d={singlePath} fill={shapeColor} />
 				);
 			});
 			return allDisjointPaths;

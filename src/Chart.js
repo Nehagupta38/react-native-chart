@@ -58,7 +58,9 @@ export default class Chart extends Component<void, any, any> {
 		yAxisWidth: 30,
 		yAxisUseDecimal: false,
 		yAxisShortLabel: false,
-		setMinVerticalBoundToZero: false
+		setMinVerticalBoundToZero: false,
+		fillGradient: false,
+		gradientArray: ["red", "green", "blue"]
 	};
 
 	constructor(props : any) {
@@ -300,4 +302,6 @@ Chart.propTypes = {
 	yAxisTransform: PropTypes.func,
 	yAxisWidth: PropTypes.number,
 	setMinVerticalBoundToZero: PropTypes.bool,
+	fillGradient: PropTypes.bool,
+	gradientArray: PropTypes.arrayOf(PropTypes.string)
 };
